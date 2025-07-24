@@ -1,0 +1,225 @@
+\documentclass[11pt]{article}
+\usepackage[margin=5mm, landscape]{geometry}
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usepgfplotslibrary{statistics}
+\usepgfplotslibrary{colorbrewer}
+\pgfplotsset{compat=1.17, cycle list/Set1-8}
+
+% Define a custom boxplot style
+\pgfplotsset{
+    boxplot/box extend=0.5,
+    boxplot/every whisker/.style={thick, solid, black},
+    boxplot/every box/.style={thick, solid, fill,fill opacity=1},
+    boxplot/every median/.style={thick, solid, black}
+}
+
+\begin{document}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    width=22cm,
+    height=14cm,
+    boxplot/draw direction=y,
+    xlabel={Sector},
+    ylabel={NSA-SA Difference},
+    title={Year-over-Year Change Five-Number Summary by Sector},
+    xtick={1,2,3,4,5,6,7,8,9,10,11,12,13,14},
+    xticklabels={Construction, Education, Finance and Insurance, Government, Health Services, Information, Leisure and Hospitality, Manufacturing, Other Services, Professional and Business Services, Real Estate, Retail Trade, Transportation, Warehousing and Utilities, Wholesale Trade},
+    xticklabel style={rotate=45, anchor=east},
+    x tick label style={font=\small},
+    grid=major,
+    grid style={gray!30},
+    ymin=-11,
+    ymax=11
+]
+
+% Boxplot 1: Construction
+\addplot+[
+    boxplot prepared={
+        median=0.011126442,
+        upper quartile=0.038210489,
+        lower quartile=-0.075620212,
+        upper whisker=1.83097427,
+        lower whisker=-2.012125758
+    },
+    boxplot/draw position=1,
+    solid
+] coordinates {};
+
+% Boxplot 2: Education
+\addplot+[
+    boxplot prepared={
+        median=-0.049684256,
+        upper quartile=0.13534164,
+        lower quartile=-0.194688671,
+        upper whisker=9.623032042,
+        lower whisker=-9.664108478
+    },
+    boxplot/draw position=2,
+    solid
+] coordinates {};
+
+% Boxplot 3: Finance and Insurance
+\addplot+[
+    boxplot prepared={
+        median=0.015111512,
+        upper quartile=0.053558483,
+        lower quartile=-0.097239613,
+        upper whisker=0.512308938,
+        lower whisker=-1.442377441
+    },
+    boxplot/draw position=3,
+    solid
+] coordinates {};
+
+% Boxplot 4: Government
+\addplot+[
+    boxplot prepared={
+        median=-0.266598161,
+        upper quartile=2.01713453,
+        lower quartile=-0.7764821,
+        upper whisker=7.451139555,
+        lower whisker=-6.305304445
+    },
+    boxplot/draw position=4,
+    solid
+] coordinates {};
+
+% Boxplot 5: Health Services
+\addplot+[
+    boxplot prepared={
+        median=0.107906181,
+        upper quartile=0.385126203,
+        lower quartile=-0.420254938,
+        upper whisker=4.109010164,
+        lower whisker=-3.890966028
+    },
+    boxplot/draw position=5,
+    solid
+] coordinates {};
+
+% Boxplot 6: Information
+\addplot+[
+    boxplot prepared={
+        median=-0.027706886,
+        upper quartile=0.158268198,
+        lower quartile=-0.164602331,
+        upper whisker=1.21846815,
+        lower whisker=-0.844023623
+    },
+    boxplot/draw position=6,
+    solid
+] coordinates {};
+
+% Boxplot 7: Leisure and Hospitality
+\addplot+[
+    boxplot prepared={
+        median=0.001124211,
+        upper quartile=0.131311018,
+        lower quartile=-0.156259605,
+        upper whisker=2.754727377,
+        lower whisker=-5.204008038
+    },
+    boxplot/draw position=7,
+    solid
+] coordinates {};
+
+% Boxplot 8: Manufacturing
+\addplot+[
+    boxplot prepared={
+        median=-0.005551047,
+        upper quartile=0.029832539,
+        lower quartile=-0.034255626,
+        upper whisker=0.265383576,
+        lower whisker=-0.586259941
+    },
+    boxplot/draw position=8,
+    solid
+] coordinates {};
+
+% Boxplot 9: Other Services
+\addplot+[
+    boxplot prepared={
+        median=0.002931139,
+        upper quartile=0.047166789,
+        lower quartile=-0.048654103,
+        upper whisker=0.621890142,
+        lower whisker=-0.851067997
+    },
+    boxplot/draw position=9,
+    solid
+] coordinates {};
+
+% Boxplot 10: Professional and Busienss Services
+\addplot+[
+    boxplot prepared={
+        median=-0.050137827,
+        upper quartile=0.179441455,
+        lower quartile=-0.176631911,
+        upper whisker=1.940503167,
+        lower whisker=-2.939119748
+    },
+    boxplot/draw position=10,
+    solid
+] coordinates {};
+
+% Boxplot 11: Real Estate
+\addplot+[
+    boxplot prepared={
+        median=-0.002903771,
+        upper quartile=0.009599218,
+        lower quartile=-0.037084548,
+        upper whisker=0.333006024,
+        lower whisker=-0.524763609
+    },
+    boxplot/draw position=11,
+    solid
+] coordinates {};
+
+% Boxplot 12: Retail Trade
+\addplot+[
+    boxplot prepared={
+        median=0.03529902,
+        upper quartile=0.318517644,
+        lower quartile=-0.088270056,
+        upper whisker=1.247810205,
+        lower whisker=-4.392053636
+    },
+    boxplot/draw position=12,
+    solid
+] coordinates {};
+
+% Boxplot 13: Transportation, Warehousing and Utilities
+\addplot+[
+    boxplot prepared={
+        median=-0.007485962,
+        upper quartile=0.112010113,
+        lower quartile=-0.070366407,
+        upper whisker=0.652174951,
+        lower whisker=-1.866482771
+    },
+    boxplot/draw position=13,
+    solid
+] coordinates {};
+
+% Boxplot 14: Wholesale Trade
+\addplot+[
+    boxplot prepared={
+        median=0.009343639,
+        upper quartile=0.025745058,
+        lower quartile=-0.03429875,
+        upper whisker=0.323899501,
+        lower whisker=-1.065626595
+    },
+    boxplot/draw position=14,
+    solid
+] coordinates {};
+
+\end{axis}
+\end{tikzpicture}
+\end{figure}
+
+\end{document}
